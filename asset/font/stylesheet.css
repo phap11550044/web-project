@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'SVN-HC 1785 GLC Baskerville';
+    src: url('SVN-HC-1785GLCBaskerville.eot');
+    src: url('SVN-HC-1785GLCBaskerville.eot?#iefix') format('embedded-opentype'),
+        url('SVN-HC-1785GLCBaskerville.woff2') format('woff2'),
+        url('SVN-HC-1785GLCBaskerville.woff') format('woff'),
+        url('SVN-HC-1785GLCBaskerville.ttf') format('truetype'),
+        url('SVN-HC-1785GLCBaskerville.svg#SVN-HC-1785GLCBaskerville') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-HC Calvous';
+    src: url('SVN-HC-Calvous.eot');
+    src: url('SVN-HC-Calvous.eot?#iefix') format('embedded-opentype'),
+        url('SVN-HC-Calvous.woff2') format('woff2'),
+        url('SVN-HC-Calvous.woff') format('woff'),
+        url('SVN-HC-Calvous.ttf') format('truetype'),
+        url('SVN-HC-Calvous.svg#SVN-HC-Calvous') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-HC Appareo';
+    src: url('SVN-HC-AppareoBlackItalic.eot');
+    src: url('SVN-HC-AppareoBlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('SVN-HC-AppareoBlackItalic.woff2') format('woff2'),
+        url('SVN-HC-AppareoBlackItalic.woff') format('woff'),
+        url('SVN-HC-AppareoBlackItalic.ttf') format('truetype'),
+        url('SVN-HC-AppareoBlackItalic.svg#SVN-HC-AppareoBlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
