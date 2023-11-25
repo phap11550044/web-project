@@ -812,7 +812,9 @@
     background-color: #d6992f92; 
     z-index: 99;
 }
-
+.pagebox{
+    font-family: 'SVN-HC Calvous';
+}
  .submitmall_content {
     font-family: 'SVN-HC Calvous';
     color: #1A4185;
