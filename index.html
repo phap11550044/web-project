@@ -8,6 +8,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <!-- canh bao dang nhap -->
+    <div class="warning">
+        
+        <div class="warning_content" >
+            <span class="warning-icon-close" onclick="removewarning()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <div style="text-align: center;">bạn phải đăng nhập để xem sản phẩm và mua hàng ở kẻ buôn tranh</div>
+        </div>
+    </div>
+
+    <div class="filter">
+        
+        <div class="filter_content" >
+            <span class="filter-icon-close" onclick="removefilter()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <div class="pricefildown" style="text-align:center;">
+                <label for="tentacles">giá tối thiểu của sản phẩm</label>
+
+                <input type="number" id="downprice" name="tentacles" min="10" max="100000000000" />
+                
+            </div>
+            <div class="pricefilup" style="text-align:center;">
+                <label for="tentacles">giá tối đa của sản phẩm</label>
+
+                <input type="number" id="upprice" name="tentacles" min="10" max="100000000000" />
+                
+            </div>
+            <div id="type">
+            <p id="type_content" style="margin: 0;">loại tranh</p>
+            </div>
+            <div id="typechoice">
+                    <form>
+                    <input type="radio" id="tranhphongcanh" name="type_pic" value="tranh phong cảnh">
+                    <label for="tranh phong cảnh">tranh phong cảnh</label><br>
+                    <input type="radio" id="tranhtruutuong" name="type_pic" value="tranh trừu tượng">
+                    <label for="tranh trừu tượng">tranh trừu tượng</label><br>
+                    <input type="radio" id="tranhtinhvat" name="type_pic" value="tranh tĩnh vật">
+                    <label for="tranh tĩnh vật">tranh tĩnh vật</label><br>
+                    <input type="radio" id="tranhngua" name="type_pic" value="tranh ngựa">
+                    <label for="tranh ngựa">tranh ngựa</label><br>
+                    <input type="radio" id="tranhhoa" name="type_pic" value="tranh hoa">
+                    <label for="tranh hoa">tranh hoa</label><br>      
+                    </form>
+                </div>
+                <div id="tone">
+                    <p style="margin: 0;line-height: 70px;">tone màu</p>
+                    </div>
+                    <div id="tonechoice">
+                        <form>
+                        <input type="radio" id="hot" name="tone_pic" value="nóng">
+                        <label for="nóng">nóng</label><br>
+                        <input type="radio" id="cold" name="tone_pic" value="lạnh">
+                        <label for="lạnh">lạnh</label><br>
+                        </form>
+                    </div>
+
+                    <div id="chatlieu">
+                        <p style="margin: 0;line-height: 70px;">chất liệu</p>
+                        </div>
+                        <div id="chatlieuchoice">
+                            <form>
+                            <input type="radio" id="acrylic" name="chatlieu_pic" value="acrylic">
+                            <label for="acrylic">acrylic</label><br>
+                            <input type="radio" id="sondau" name="chatlieu_pic" value="sơn dầu">
+                            <label for="sơn dầu">sơn dầu</label><br>
+                            </form>
+                        </div>
+                        <div id="reset" onclick="reset()" style="text-align: center;">
+                            đặt lại
+                        </div>
+            
+        </div>
+    </div>
     <div class="form_login-out">
         <div class="wrapper">
             <span class="icon-close">
@@ -73,9 +148,9 @@
     <div class="header">
         <div class="top_header">
             <div class="logo"><a href=""><img style="width: 250px;height: 100%;" src="asset/img/logo.png" alt="logo"></a></div>
-            <div class="search"><input style="color: #1A4185"  type="text" placeholder="Tìm kiếm sản phẩm"><i class="fa fa-search" style="color: #1A4185;"></i></div>
-            <div class="loc"><a href=""><button type="submit" style="color: #1A4185;">LỌC<i class="fa-solid fa-caret-down"></i></button></a></div>
-            <div class="shopping"><a href="" >GIỎ HÀNG<i class="fa-solid fa-cart-plus" ></i></a></div>
+            <div class="search"><input id="searchbar" style="color: #1A4185"  type="text" placeholder="Tìm kiếm sản phẩm"><i onclick="filter()" class="fa fa-search" ></i></div>
+            <div class="loc"onclick="onfilter()"><button type="submit" style="color: #1A4185;">LỌC<i class="fa-solid fa-caret-down"></i></button></div>
+            <div class="shopping"onclick="canhbaodangnhap()">GIỎ HÀNG<i class="fa-solid fa-cart-plus" ></i></div>
             <div id="vach" style="height:40px;border-left: 3px solid #1A4185;margin-top: 45px;border-radius: 99px;"></div>
             <div class="login_out">ĐĂNG KÝ / ĐĂNG NHẬP</div>
         </div>
@@ -154,50 +229,50 @@
         </div>
 
         <div class="head2">
-            <div class="box box1">
-                <img src="asset/img/trangchu/box1.png" alt="Ảnh phieu lang" width="100%" height="65%">
+            <div class="box box1" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box1.png" alt="Ảnh phieu lang" style="width: 263px;">
                 <h2 class="name">PHIÊU LÃNG</h2>
                 <p class="content">tranh trừu tượng</p>
                 <p class="price">10.800.000.000 đ</p>
             </div>
-            <div class="box box2">
-                <img src="asset/img/trangchu/box2.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box2" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box2.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">SẮC HỒNG</h2>
                 <p class="content">tranh hoa</p>
                 <p class="price">180.000.000 đ</p>
             </div>
-            <div class="box box3">  
-                <img src="asset/img/trangchu/box3.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box3" onclick="canhbaodangnhap()">  
+                <img src="asset/img/trangchu/box3.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">THUYỀN VÀ BIỂN</h2>
                 <p class="content">tranh phong cảnh</p>
                 <p class="price">140.000.000 đ</p>
             </div>
-            <div class="box box4">
-                <img src="asset/img/trangchu/box4.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box4" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box4.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">THƯỞNG TRÀ</h2>
                 <p class="content">tranh tĩnh vật</p>
                 <p class="price">100.000.000 đ</p>
             </div> 
-            <div class="box box5">  
-                <img src="asset/img/trangchu/box5.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box5" onclick="canhbaodangnhap()">  
+                <img src="asset/img/trangchu/box5.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">PHỐ VÀO THU</h2>
                 <p class="content">tranh phong cảnh</p>
                 <p class="price">800.000.000 đ</p>
             </div>
-            <div class="box box6">
-                <img src="asset/img/trangchu/box6.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box6" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box6.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">KIÊU HÃNH</h2>
                 <p class="content">tranh ngựa</p>
                 <p class="price">762.000.000 đ</p>
             </div>
-            <div class="box box7">
-                <img src="asset/img/trangchu/box7.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box7" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box7.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">PHỐ LÊN ĐÈN</h2>
                 <p class="content">tranh trừu tượng</p>
                 <p class="price">620.000.000 đ</p>
             </div>
-            <div class="box box8">
-                <img src="asset/img/trangchu/box8.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box8" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box8.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">MÙA VỀ</h2>
                 <p class="content">tranh phong cảnh</p>
                 <p class="price">500.000.000 đ</p>
@@ -257,7 +332,7 @@ da gà.”</pre>
         <!-- danh muc san pham -->
         <div class="landscape_picture_wrapper">
             <div class="landscape_picture_header">
-                <h1>TRANH PHONG CẢNH</h1>
+                TRANH PHONG CẢNH
             </div>
             
             <div class="landscape_picture_content">
@@ -267,12 +342,54 @@ da gà.”</pre>
         </div>
         <div class="flower_picture_wrapper">
             <div class="flower_picture_header">
-                <h1>TRANH HOA</h1>
+                TRANH HOA
             </div>
             
             <div class="flower_picture_content">
             </div>
             <div class="flower_picture_paging">
+            </div>
+        </div>
+
+        <div class="still_picture_wrapper">
+            <div class="still_picture_header">
+                TRANH tĩnh vật
+            </div>
+            
+            <div class="still_picture_content">
+            </div>
+            <div class="still_picture_paging">
+            </div>
+        </div>
+
+        <div class="abstract_picture_wrapper">
+            <div class="abstract_picture_header">
+                TRANH trừu tượng
+            </div>
+            
+            <div class="abstract_picture_content">
+            </div>
+            <div class="abstract_picture_paging">
+            </div>
+        </div>
+        <div class="horse_picture_wrapper">
+            <div class="horse_picture_header">
+                TRANH ngựa
+            </div>
+            
+            <div class="horse_picture_content">
+            </div>
+            <div class="horse_picture_paging">
+            </div>
+        </div>
+        <div class="filters_picture_wrapper">
+            <div class="filters_picture_header">
+                kết quả tìm kiếm
+            </div>
+            
+            <div class="filters_picture_content">
+            </div>
+            <div class="filters_picture_paging">
             </div>
         </div>
     <!-- hợp tác -->
@@ -334,7 +451,7 @@ da gà.”</pre>
         </div> 
         <div class="introduce_body">
             <h1>01</h1>
-            <h1>SƠ LUỌC VỀ KỂ BUÔN TRANH</h1>
+            <h1>SƠ Lược VỀ KỂ BUÔN TRANH</h1>
             <h3>Ra mắt vao tháng 1 năm 2023.</h3>
             <h3>Kẻ buôn tranh mang một màu sắc đặc trưng, từ thiết kế đến màu sắc đều nhuộm một màu vàng rực rỡ đậm tinh hoài cỗ của miền Nam Việt Nam 1970s.</h3>
             <h1>02</h1>
@@ -380,7 +497,7 @@ da gà.”</pre>
     <div class="contact">
         <div class="contact_content">
             <div class="contact_content1">
-                <h1>MỌI THÔNG TIN VUI LONG</h1>
+                <h1>MỌI THÔNG TIN VUI LòNG</h1>
                 <h1>LIÊN HỆ</h1>
             </div>
             <div class="contact_content2">
@@ -441,5 +558,6 @@ da gà.”</pre>
         <div class="footer2">Copyright © 2023 KẺ BUÔN TRANH. Ghi rõ nguồn "Kẻ buôn tranh" khi sử dụng thông tin từ trang web này.</div>
     </div>
 <script  src="asset/js/javascript.js"></script>
+<script  src="asset/js/local.js"></script>
 </body>
 </html>

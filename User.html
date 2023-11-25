@@ -6,9 +6,18 @@
     <title>Kẻ Buôn Tranh</title>
     <link rel="stylesheet" href="asset/css/User.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body>
+
+    <div class="warning">
+        
+        <div class="warning_content" >
+            <span class="warning-icon-close" onclick="removewarning()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <div style="text-align: center;margin-bottom: 30px;">đây là sản phẩm trưng bày, hãy vào phần danh mục sản phẩm để xem chi tiết bạn nhé</div>
+        </div>
+    </div>
     <div class="form_information">
         
         <div class="form_infor">
@@ -17,15 +26,19 @@
                 <span class="icon-close-infor">
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </span>
-                <h1>THÔNG TIN KHÁCH HÀNG</h1>
-                <h3 class="name_infor"></h3>
-                <h3 class="email"></h3>
-                <h3 class="number_phone"></h3>
-                <h3 class="dia_chi"></h3>
-                <div class="dang_xuat"><h1>ĐĂNG XUẤT</h1></div>
+                <div style="text-align: center;margin-top: 50px;"><h1 >THÔNG TIN KHÁCH HÀNG</h1></div>
+                <div style="text-align: center;" >
+                        
+                <h3 class="name_infor"style="padding-left:10px;margin:10px"></h3>
+                <h3 class="email"style="padding-left:10px;margin:10px"></h3>
+                <h3 class="number_phone"style="padding-left:10px;margin:10px"></h3>
+                <h3 class="dia_chi"style="padding-left:10px;margin:10px"></h3>
+                </div>
+                <div class="dang_xuat" style="text-align: center;"><h1 style="color:#BD2C13">ĐĂNG XUẤT</h1></div>
             </div>
         </div>
     </div>
+    <!-- chi tiet san pham -->
     <div class="picture_information">
         
         <div class="picture_infor">
@@ -35,36 +48,113 @@
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </span>
                 <div class="picture_infor-box-img">
-                    <img src="asset/img/trangchu/liveshow1.jpeg" alt="">
+                    <img src="asset/img/trangchu/test.png" alt="">
                 </div>
                 <div class="picture_infor-box-title"><h1>PHIÊU LÃNG</h1></div>
                 <div class="picture_infor-box-content">
                     <div class="picture_infor-box-content-1">
-                        <p>Tranh phong canh</p>
-                        <p>Tong mau</p>
-                        <p>Chat lieu</p>
-                        <p>Kich Thuoc</p>
-                        <p>GIA</p>
+                        <div style="text-align: center;"id="inforname"><h3>loại tranh</h3><h4 style="color: #BD2C13;">name</h4></div>
+                        <div style="text-align: center;"id="infortone"><h3>tone màu</h3><h4 style="color: #BD2C13;">name</h4></div>
+                        <div style="text-align: center;"id="inforchatlieu"><h3>chất liệu</h3><h4 style="color: #BD2C13;">name</h4></div>
+                        <div style="text-align: center;"id="inforprice" style="text-align: center;"><h3 >giá</h3><h2 style="color: #BD2C13;">name</h2></div>
                     </div>
                     <div class="picture_infor-box-content-2">
                         <div class="picture_infor-box-content-2-icon">
-                            <img src="asset/img/contact/Group 1.png">
+                            <img src="asset/img/contact/Shopping Bag.png">
                         </div>
-                        <div class="picture_infor-box-content-2-button">
-                           <button> THEM VAO GIO HANG</button>
+                        <div class="picture_infor-box-content-2-button" onclick="submitmall()">
+                           <button style="font-family:SVN-HC Calvous;"> THêm vào giỏ hàng</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="submitmall">
+        
+        <div class="submitmall_content" >
+            <span class="submitmall-icon-close" onclick="removesubmitmall()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <div style="text-align: center;">bạn có chắc chắn muốn đặt hàng không<div id="choicesubmit" style="text-align: center;">
+                <div id="yessubmit"onclick="yessubmit()">có</div>
+                <div id="nosubmit"onclick="nosubmit()">không</div>
+            </div></div>
+        </div>
+    </div>
+
+    <div class="filter">
+        
+        <div class="filter_content" >
+            <span class="filter-icon-close" onclick="removefilter()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <div class="pricefildown" style="text-align:center;">
+                <label for="tentacles">giá tối thiểu của sản phẩm</label>
+
+                <input type="number" id="downprice" name="tentacles" min="10" max="100000000000" />
+                
+            </div>
+            <div class="pricefilup" style="text-align:center;">
+                <label for="tentacles">giá tối đa của sản phẩm</label>
+
+                <input type="number" id="upprice" name="tentacles" min="10" max="100000000000" />
+                
+            </div>
+            <div id="type">
+            <p id="type_content" style="margin: 0;">loại tranh</p>
+            </div>
+            <div id="typechoice">
+                    <form>
+                    <input type="radio" id="tranhphongcanh" name="type_pic" value="tranh phong cảnh">
+                    <label for="tranh phong cảnh">tranh phong cảnh</label><br>
+                    <input type="radio" id="tranhtruutuong" name="type_pic" value="tranh trừu tượng">
+                    <label for="tranh trừu tượng">tranh trừu tượng</label><br>
+                    <input type="radio" id="tranhtinhvat" name="type_pic" value="tranh tĩnh vật">
+                    <label for="tranh tĩnh vật">tranh tĩnh vật</label><br>
+                    <input type="radio" id="tranhngua" name="type_pic" value="tranh ngựa">
+                    <label for="tranh ngựa">tranh ngựa</label><br>
+                    <input type="radio" id="tranhhoa" name="type_pic" value="tranh hoa">
+                    <label for="tranh hoa">tranh hoa</label><br>      
+                    </form>
+                </div>
+                <div id="tone">
+                    <p style="margin: 0;line-height: 70px;">tone màu</p>
+                    </div>
+                    <div id="tonechoice">
+                        <form>
+                        <input type="radio" id="hot" name="tone_pic" value="nóng">
+                        <label for="nóng">nóng</label><br>
+                        <input type="radio" id="cold" name="tone_pic" value="lạnh">
+                        <label for="lạnh">lạnh</label><br>
+                        </form>
+                    </div>
+
+                    <div id="chatlieu">
+                        <p style="margin: 0;line-height: 70px;">chất liệu</p>
+                        </div>
+                        <div id="chatlieuchoice">
+                            <form>
+                            <input type="radio" id="acrylic" name="chatlieu_pic" value="acrylic">
+                            <label for="acrylic">acrylic</label><br>
+                            <input type="radio" id="sondau" name="chatlieu_pic" value="sơn dầu">
+                            <label for="sơn dầu">sơn dầu</label><br>
+                            </form>
+                        </div>
+                        <div id="reset" onclick="reset()" style="text-align: center;">
+                            đặt lại
+                        </div>
+            
+        </div>
+    </div>
+    
     <!-- header PHAP -->
     <div class="header">
         <div class="top_header">
             <div class="logo"><a href=""><img style="width: 250px;height: 100%;" src="asset/img/logo.png" alt="logo"></a></div>
-            <div class="search"><input style="color: #1A4185"  type="text" placeholder="Tìm kiếm sản phẩm"><i class="fa fa-search" style="color: #1A4185;"></i></div>
-            <div class="loc"><a href=""><button type="submit" style="color: #1A4185;">LỌC<i class="fa-solid fa-caret-down"></i></button></a></div>
-            <div class="shopping"><a href="" >GIỎ HÀNG<i class="fa-solid fa-cart-plus" ></i></a></div>
+            <div class="search"><input id="searchbar" style="color: #1A4185"  type="text" placeholder="Tìm kiếm sản phẩm"><i onclick="filter()" class="fa fa-search" ></i></div>
+            <div class="loc"onclick="onfilter()"><button type="submit" style="color: #1A4185;">LỌC<i class="fa-solid fa-caret-down"></i></button></div>
+            <div class="shopping">GIỎ HÀNG<i class="fa-solid fa-cart-plus" ></i></div>
             <div id="vach" style="height:40px;border-left: 3px solid #1A4185;margin-top: 45px;border-radius: 99px;"></div>
             <div class="login_out">ĐĂNG KÝ / ĐĂNG NHẬP</div>
         </div>
@@ -73,11 +163,11 @@
                 <div  class="danhsach" style="padding-left: 5px;padding-right: 5px;"><a ><i class="fa-solid fa-bars"></i>DANH MỤC SẢN PHẨM</a></div>
                 <div class="submenu">   
                     <ul>
-                        <li><a class="phongcanh" href="#">TRANH PHONG CẢNH</a></li>
-                        <li><a class="tranhhoa" href="#">TRANH HOA</a></li>
-                        <li><a class="tinhvat" href="#">TRANH TĨNH VẬT</a></li>
-                        <li><a class="truutuong" href="#">TRANH TRỪU TƯỢNG</a></li>
-                        <li><a class="tranhngua" href="#">TRANH NGỰA</a></li>
+                        <li class="phongcanh"><a  href="#phongcanh">TRANH PHONG CẢNH</a></li>
+                        <li class="tranhhoa"><a  href="#tranhhoa">TRANH hoa</a></li>
+                        <li class="tinhvat"><a  href="#tinhvat">TRANH TĨNH VẬT</a></li>
+                        <li class="truutuong"><a  href="#truutuong">TRANH TRỪU TƯỢNG</a></li>
+                        <li class="tranhngua"><a  href="#ngua">TRANH NGỰA</a></li>
                     </ul>
                 </div>
             </div>
@@ -90,8 +180,6 @@
             <div style="font-size: 25px;"><a href="https://www.instagram.com/leomessi" class="list_bot_header"><i class="fa-brands fa-instagram" style="color: #e11955;"></i></a></div>
         </div>
     </div>
-
-
     
     <div class="main_home">
         
@@ -145,58 +233,56 @@
         </div>
 
         <div class="head2">
-            <div class="box box1">
-                <img src="asset/img/trangchu/box1.png" alt="Ảnh phieu lang" width="100%" height="65%">
+            <div class="box box1" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box1.png" alt="Ảnh phieu lang" style="width: 263px;">
                 <h2 class="name">PHIÊU LÃNG</h2>
                 <p class="content">tranh trừu tượng</p>
                 <p class="price">10.800.000.000 đ</p>
             </div>
-            <div class="box box2">
-                <img src="asset/img/trangchu/box2.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box2" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box2.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">SẮC HỒNG</h2>
                 <p class="content">tranh hoa</p>
                 <p class="price">180.000.000 đ</p>
             </div>
-            <div class="box box3">  
-                <img src="asset/img/trangchu/box3.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box3" onclick="canhbaodangnhap()">  
+                <img src="asset/img/trangchu/box3.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">THUYỀN VÀ BIỂN</h2>
                 <p class="content">tranh phong cảnh</p>
                 <p class="price">140.000.000 đ</p>
             </div>
-            <div class="box box4">
-                <img src="asset/img/trangchu/box4.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box4" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box4.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">THƯỞNG TRÀ</h2>
                 <p class="content">tranh tĩnh vật</p>
                 <p class="price">100.000.000 đ</p>
             </div> 
-            <div class="box box5">  
-                <img src="asset/img/trangchu/box5.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box5" onclick="canhbaodangnhap()">  
+                <img src="asset/img/trangchu/box5.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">PHỐ VÀO THU</h2>
                 <p class="content">tranh phong cảnh</p>
                 <p class="price">800.000.000 đ</p>
             </div>
-            <div class="box box6">
-                <img src="asset/img/trangchu/box6.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box6" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box6.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">KIÊU HÃNH</h2>
                 <p class="content">tranh ngựa</p>
                 <p class="price">762.000.000 đ</p>
             </div>
-            <div class="box box7">
-                <img src="asset/img/trangchu/box7.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box7" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box7.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">PHỐ LÊN ĐÈN</h2>
                 <p class="content">tranh trừu tượng</p>
                 <p class="price">620.000.000 đ</p>
             </div>
-            <div class="box box8">
-                <img src="asset/img/trangchu/box8.png" alt="Ảnh sắc màu thảo nguyên" width="100%" height="65%">
+            <div class="box box8" onclick="canhbaodangnhap()">
+                <img src="asset/img/trangchu/box8.png" alt="Ảnh sắc màu thảo nguyên"  >
                 <h2 class="name">MÙA VỀ</h2>
                 <p class="content">tranh phong cảnh</p>
                 <p class="price">500.000.000 đ</p>
             </div>
         </div>
     </div>
-
-   
   <!-- FOOTER TAM -->
     <div class="footer">
         <div class="header_footer">
@@ -250,171 +336,105 @@ da gà.”</pre>
         <!-- danh muc san pham -->
         <div class="landscape_picture_wrapper">
             <div class="landscape_picture_header">
-                <h1>TRANH PHONG CẢNH</h1>
+                TRANH PHONG CẢNH
             </div>
             
             <div class="landscape_picture_content">
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
+            </div>
+            <div class="landscape_picture_paging">
+            </div>
+        </div>
+        <div class="flower_picture_wrapper">
+            <div class="flower_picture_header">
+                TRANH HOA
+            </div>
+            
+            <div class="flower_picture_content">
+            </div>
+            <div class="flower_picture_paging">
+            </div>
+        </div>
+
+        <div class="still_picture_wrapper">
+            <div class="still_picture_header">
+                TRANH tĩnh vật
+            </div>
+            
+            <div class="still_picture_content">
+            </div>
+            <div class="still_picture_paging">
+            </div>
+        </div>
+
+        <div class="abstract_picture_wrapper">
+            <div class="abstract_picture_header">
+                TRANH trừu tượng
+            </div>
+            
+            <div class="abstract_picture_content">
+            </div>
+            <div class="abstract_picture_paging">
+            </div>
+        </div>
+        <div class="horse_picture_wrapper">
+            <div class="horse_picture_header">
+                TRANH ngựa
+            </div>
+            
+            <div class="horse_picture_content">
+            </div>
+            <div class="horse_picture_paging">
+            </div>
+        </div>
+        <div class="filters_picture_wrapper">
+            <div class="filters_picture_header">
+                kết quả tìm kiếm
+            </div>
+            
+            <div class="filters_picture_content">
+            </div>
+            <div class="filters_picture_paging">
+            </div>
+        </div>
+        <!-- giohang -->
+        <div id="shopping-mall-wrapper">
+            <div id="shopping-mall-header">
+                giỏ hàng
                 </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/kiuchanoi.png" alt="Ảnh phieu lang">
+                <div id="shopping-mall-header-2">
+                    <i style="font-size: 45px;"class="fa-solid fa-cart-plus" ></i>
+                    danh sách
                     </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
+                <div id="shopping-mall-header">
+                    chưa xử lý
                     </div>
+                    
+        <div class="unstatus">
+            <div class="shopping-mall-content">
+                <div class="shoppingname" >
+                    <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="pdt"style="height:264.52px;width: 264.52px;margin:10px;border-radius:20px">
+                    <h2>phố đường tàu</h2>
                 </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
+                <div class="shoppingprice">
+                    <h2 style="margin-top: 20%;">giá</h2>
+                    <h2>180.000.000 đ</h2>
                 </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
+                <div class="shoppingstatus">
+                    <div>
+                    <h2 style="margin-top: 20%;">tình trạng</h2>
+                    <h2> đã xử lý</h2>
                 </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
-                </div>
-                <div class="landscape_box">
-                    <div class="landscape_box_img">
-                        <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="Ảnh phieu lang">
-                    </div>
-                    <div class="landscape_box_content">
-                        <h2 class="name">PHIÊU LÃNG</h2>
-                        <p class="content">tranh trừu tượng</p>
-                        <p class="price">10.800.000.000 đ</p>
-                    </div>
                 </div>
             </div>
+        </div>
+            <div id="shopping-mall-header">
+                đã xử lý
+                </div>
+                <div class="statused"></div>
+                <div id="shopping-mall-header">
+                    đã giao
+                    </div>
+                    <div class="delivered"></div>
         </div>
     <!-- hợp tác -->
     <div class="cooperate-main">
@@ -475,7 +495,7 @@ da gà.”</pre>
         </div> 
         <div class="introduce_body">
             <h1>01</h1>
-            <h1>SƠ LUỌC VỀ KỂ BUÔN TRANH</h1>
+            <h1>SƠ Lược VỀ KỂ BUÔN TRANH</h1>
             <h3>Ra mắt vao tháng 1 năm 2023.</h3>
             <h3>Kẻ buôn tranh mang một màu sắc đặc trưng, từ thiết kế đến màu sắc đều nhuộm một màu vàng rực rỡ đậm tinh hoài cỗ của miền Nam Việt Nam 1970s.</h3>
             <h1>02</h1>
@@ -521,7 +541,7 @@ da gà.”</pre>
     <div class="contact">
         <div class="contact_content">
             <div class="contact_content1">
-                <h1>MỌI THÔNG TIN VUI LONG</h1>
+                <h1>MỌI THÔNG TIN VUI LòNG</h1>
                 <h1>LIÊN HỆ</h1>
             </div>
             <div class="contact_content2">
@@ -581,6 +601,6 @@ da gà.”</pre>
 
         <div class="footer2">Copyright © 2023 KẺ BUÔN TRANH. Ghi rõ nguồn "Kẻ buôn tranh" khi sử dụng thông tin từ trang web này.</div>
     </div>
-<script  src="asset/js/User.js"></script> 
+<script  src="asset/js/User.js"></script>
 </body>
 </html>

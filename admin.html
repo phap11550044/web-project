@@ -2,11 +2,232 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kẻ Buôn Tranh</title>
     <link rel="stylesheet" href="asset/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
 </head>
 <body>
+    <div class="form_information">
+        
+        <div class="form_infor">
+            
+            <div class="form_infor-box">
+                <span class="icon-close-infor">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+                <div style="text-align: center;margin-top: 50px;"><h1 >THÔNG TIN KHÁCH HÀNG</h1></div>
+                <div style="text-align: center;" >
+                        
+                <h3 class="name_infor"style="padding-left:10px;margin:10px"></h3>
+                <h3 class="email"style="padding-left:10px;margin:10px"></h3>
+                <h3 class="number_phone"style="padding-left:10px;margin:10px"></h3>
+                <h3 class="dia_chi"style="padding-left:10px;margin:10px"></h3>
+                </div>
+                <div class="dang_xuat" style="text-align: center;"><h1 style="color:#BD2C13">ĐĂNG XUẤT</h1></div>
+            </div>
+        </div>
+    </div>
+<div class="wrapper">
+    <div class="header admin" onclick="movepage('.main')">ADMIN</div>
+    <div class="logout"><div class="logout_content" onclick="logout()">đăng xuất      
+    </div>
+    <div class="logout_content_2">chào mừng bạn đã trở lại</div>
+    </div>
+    <div class="main">
     
+    
+    <div class="manage">
+        <div class="addsp choice" onclick="movepage('.add')">thêm sản phẩm</div>
+        <div class= "removesp choice" onclick="movepage('.remove_wrapper')" >xóa sản phẩm</div>
+        <div class="bill choice" onclick="movepage('#shopping-mall-wrapper')" >quản lí đơn hàng</div>    
+    </div>
+</div>
+    <div class="add">
+        <div class="header">thêm sản phẩm</div>
+        <div>
+        <div id="type" style="background-color: #FBBF49;">
+            <p id="type_content" style="margin: 0;text-align: center;color: #BD2C13;">loại tranh</p>
+            </div>
+            <div id="typechoice" style="background-color: #FBBF49;">
+                    <form>
+                    <input type="radio" id="tranhphongcanh" name="type_pic" value="tranh phong cảnh">
+                    <label for="tranh phong cảnh">tranh phong cảnh</label><br>
+                    <input type="radio" id="tranhtruutuong" name="type_pic" value="tranh trừu tượng">
+                    <label for="tranh trừu tượng">tranh trừu tượng</label><br>
+                    <input type="radio" id="tranhtinhvat" name="type_pic" value="tranh tĩnh vật">
+                    <label for="tranh tĩnh vật">tranh tĩnh vật</label><br>
+                    <input type="radio" id="tranhngua" name="type_pic" value="tranh ngựa">
+                    <label for="tranh ngựa">tranh ngựa</label><br>
+                    <input type="radio" id="tranhhoa" name="type_pic" value="tranh hoa">
+                    <label for="tranh hoa">tranh hoa</label><br>      
+                    </form>
+                </div>
+                <div id="tone" style="background-color: #FBBF49;">
+                    <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">tone màu</p>
+                    </div>
+                    <div id="tonechoice" style="background-color: #FBBF49;">
+                        <form>
+                        <input type="radio" id="hot" name="tone_pic" value="nóng">
+                        <label for="nóng">nóng</label><br>
+                        <input type="radio" id="cold" name="tone_pic" value="lạnh">
+                        <label for="lạnh">lạnh</label><br>
+                        </form>
+                    </div>
+
+                    <div id="chatlieu" style="background-color: #FBBF49;">
+                        <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">chất liệu</p>
+                        </div>
+                        <div id="chatlieuchoice" style="background-color: #FBBF49;">
+                            <form>
+                            <input type="radio" id="acrylic" name="chatlieu_pic" value="acrylic">
+                            <label for="acrylic">acrylic</label><br>
+                            <input type="radio" id="sondau" name="chatlieu_pic" value="sơn dầu">
+                            <label for="sơn dầu">sơn dầu</label><br>
+                            </form>
+                        </div>
+
+                        <div id="namechoice" style="background-color: #FBBF49;">
+                            <label for="name">tên tác phẩm </label>
+                            <br>
+                            <input type="text" id="namepic" name="name"  />
+                    </div>
+                    <div id="pricechoice" style="background-color: #FBBF49;">
+                            <label for="tentacles">giá </label>
+                            <br>
+                            <input type="number" id="pricepic" name="tentacles" min="10" max="100000000" />
+                    </div>
+                    <div class="imgchoice" style="text-align: center;padding-top: 10px;background-color: #FBBF49;">
+                        <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">hình ảnh </p>
+                    <div>
+                        <img id="img" src="asset/img/img.png" height="338px" width="367px">
+
+                    </div>
+                    <input style="color: #1A4185;" type="file" id="inputimg">
+                </div>
+
+                <div class="imgctchoice" style="text-align: center;padding-top: 10px;background-color: #FBBF49;">
+                    <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">hình ảnh chi tiết</p>
+                    <div>
+                        <img id="imgct" src="asset/img/imgct.png" height="370px" width="575px">
+
+                    </div>
+                    <input style="color: #1A4185;" type="file" id="inputimgct">
+                </div>
+                  
+                        <div id="addon" onclick="addon()" style="text-align: center;background-color: #FBBF49;">
+                            thêm sản phẩm
+                        </div>
+                    </div>
+    </div>
+    <div class="remove_wrapper">
+    <div class="remove">
+        <div class="removepc choice" onclick="movepage('.landscape_picture_wrapper')">xóa tranh phong cảnh</div>
+        <div class="removeth choice" onclick="movepage('.flower_picture_wrapper')">xóa tranh hoa</div>
+        <div class="removett choice" onclick="movepage('.abstract_picture_wrapper')">xóa tranh trừu tượng</div>
+        <div class="removetn choice" onclick="movepage('.horse_picture_wrapper')">xóa tranh ngựa</div>
+        <div class="removetv choice" onclick="movepage('.still_picture_wrapper')">xóa tranh tĩnh vật</div>
+
+    </div>
+</div>
+<div id="shopping-mall-wrapper">
+    <div id="shopping-mall-header">
+        quản lí đơn hàng
+        </div>
+        <div id="shopping-mall-header-2">
+            <i style="font-size: 45px;"class="fa-solid fa-cart-plus" ></i>
+            danh sách
+            </div>
+        <div id="shopping-mall-header">
+            chưa xử lý
+            </div>
+            
+<div class="unstatus">
+    <div class="manageshop_content">
+    <div class="customer">ngô công thành</div>
+    <div class="shopping-mall-content">
+        <div class="shoppingname" >
+            <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="pdt"style="height:264.52px;width: 264.52px;margin:10px;border-radius:20px">
+            <h2>phố đường tàu</h2>
+        </div>
+        <div class="shoppingprice">
+            <h2 style="margin-top: 20%;">giá</h2>
+            <h2>180.000.000 đ</h2>
+        </div>
+        <div class="shoppingstatus">
+            <div>
+            <h2 style="margin-top: 20%;">tình trạng</h2>
+            <h2> đã xử lý</h2>
+            <h2> đã xử lý</h2>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+    <div id="shopping-mall-header">
+        đã xử lý
+        </div>
+        <div class="statused"></div>
+        <div id="shopping-mall-header">
+            đã giao
+            </div>
+            <div class="delivered"></div>
+</div>
+<div class="landscape_picture_wrapper">
+    <div class="landscape header" style="border: #1A4185 3px solid;">
+        TRANH PHONG CẢNH
+    </div>
+    
+    <div class="landscape_picture_content">
+    </div>
+    <div class="landscape_picture_paging">
+    </div>
+</div>
+<div class="flower_picture_wrapper">
+    <div class="flower header" style="border: #1A4185 3px solid;" >
+        TRANH HOA
+    </div>
+    
+    <div class="flower_picture_content">
+    </div>
+    <div class="flower_picture_paging">
+    </div>
+</div>
+
+<div class="still_picture_wrapper">
+    <div class="still header" style="border: #1A4185 3px solid;">
+        TRANH tĩnh vật
+    </div>
+    
+    <div class="still_picture_content">
+    </div>
+    <div class="still_picture_paging">
+    </div>
+</div>
+
+<div class="abstract_picture_wrapper">
+    <div class="abstract header" style="border: #1A4185 3px solid;">
+        TRANH trừu tượng
+    </div>
+    
+    <div class="abstract_picture_content">
+    </div>
+    <div class="abstract_picture_paging">
+    </div>
+</div>
+<div class="horse_picture_wrapper">
+    <div class="horse header" style="border: #1A4185 3px solid;">
+        TRANH ngựa
+    </div>
+    
+    <div class="horse_picture_content">
+    </div>
+    <div class="horse_picture_paging">
+    </div>
+</div>
+    
+
+    <script  src="asset/js/admin.js"></script>
 </body>
 </html>
