@@ -305,6 +305,7 @@ a{
 .shopping{
     height:100%;
     color:#1A4185;
+    cursor: pointer;
 }
 .shopping i{
     margin-left: 5px;
@@ -364,11 +365,12 @@ a{
 }
 .submenu ul>li{
     padding-left: 10px;
+    cursor: pointer;
 }
-.submenu ul>li a{
+.submenu ul>li {
     color: #1A4185;
 }
-.submenu ul>li:hover a{
+.submenu ul>li:hover {
     color: #ec9d00;
 }
 .submenu ul>li:hover{
@@ -695,6 +697,14 @@ pre{
     border-style: solid;
     border-width: 3px;
 }
+#submitbuy{
+    height:50px;width:100vw;background-color:#BD2C13;color:white;line-height:50px;text-align:center;font-family:'SVN-HC Calvous'
+}
+
+#submitbuy:hover{
+    background-color:white;color:#BD2C13;
+    cursor: pointer;
+}
 /*  */
 
 /* ---------------phần css của các trang phụ-------------------------- */
@@ -808,7 +818,7 @@ pre{
 }   
 .contact_content1{
     padding: 1% 10% 1% 10%;
-    height: 90px;
+    height: auto;
     color: #BD2C13;
     margin-bottom: 20px;
 }
@@ -848,24 +858,24 @@ pre{
 }
 
 .contact_content3{
-    height: 750px;
+    height: auto;
     background-color:#BD2C13;
     padding: 2% 2% 1% 2%;
 }
 .contact_content3_img{
     height: 80%;
     width: 100%;
-    background-color: #008faf;
+    background-color: #BD2C13;
     display: flex;
     margin-bottom:40px ;
 }
 .contact_content3_img_1{
-    width: 60%;
-    height: 100%;
+    width: 820px;
+    height: 580px;
 }
 .contact_content3_img_1>img{
-    width: 100%;
-    height: 100%;
+    width: 820px;
+    height: 580px;
 }
 .contact_content3_img_space{
     background-color: #BD2C13;
@@ -876,8 +886,8 @@ pre{
     height: 100%;
 }
 .contact_content3_img_2>img{
-    width: 100%;
-    height: 100%;
+    width: 590px;
+    height: 620px;
 }
 .contact_content3_text{
     height: 10%;
@@ -912,6 +922,7 @@ pre{
     justify-content: center;
     padding-top: 30px;
     color: #BD2C13;
+    line-height: 150px;
 }
 .introduce_header>img{
     position: absolute;
@@ -922,7 +933,6 @@ pre{
 .introduce_body{
     height: auto;
     background-color: #FBBF49;
-    padding:430px 5% 0 5%;
     text-align: center;
 }
 .introduce_body h3{
@@ -1081,6 +1091,153 @@ pre{
     border-top-left-radius: 20px;
     cursor: pointer;
     z-index: 1;
+}
+.bill_information{
+    display: none;
+}
+.bill_infor{
+    display: flex;
+    justify-content: space-evenly; 
+    position: absolute;
+    height: 4000px;
+    width: 100vw;
+    background-color: #d6992f92; 
+    z-index: 99;
+}
+.bill_infor-box{
+    display: flex;
+    margin-top: 60px;
+    font-family: 'SVN-HC Calvous';
+    color: #1A4185;
+    font-size: 18px;
+    justify-content: center; 
+    flex-wrap: wrap;
+    height: auto;
+    width: 50%;
+    position: absolute;
+    border-radius:20px ;
+    background-color: #FBBF49;
+    z-index: 99;;
+} 
+.icon-close-infor_bill{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: #1A4185;
+    font-size: 2em;
+    color: #FBBF49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+    z-index: 1;
+}
+#submitbill{
+    text-align:center;border: #1A4185 1px groove;
+    margin-bottom: 30px;
+}
+#submitbill:hover{
+    color:#FBBF49;
+    background-color: #1A4185;
+}
+.billtable{
+    margin-top: 60px;
+}
+.billtable table,.billtable th{
+    font-size: 23px;
+    border:#1A4185 1px groove;
+}
+.billtable td{
+    font-size: 20px;
+    border:#1A4185 1px groove;
+}
+
+.unstatuss{
+    display:flex;
+    flex-direction: column;
+    background-color: #FBBF49;
+    height:auto;
+    width: 100vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    color:#1A4185;
+    font-family: 'SVN-HC Calvous';
+}
+
+.unstatuss table{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.statused{
+    display:flex;
+    flex-direction: column;
+    background-color: #FBBF49;
+    height:auto;
+    width: 100vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    color:#1A4185;
+    font-family: 'SVN-HC Calvous';
+}
+
+.statused table{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.delivered{
+    display:flex;
+    flex-direction: column;
+    background-color: #FBBF49;
+    height:auto;
+    width: 100vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    color:#1A4185;
+    font-family: 'SVN-HC Calvous';
+}
+
+.delivered table{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#removelist{
+    text-align: center;
+    font-size: 25px;
+    border: #1A4185 1px groove;
+}
+#removelist:hover{
+    color:#FBBF49;
+    background-color: #1A4185;
+}
+.unstatuss table,.unstatuss th{
+    font-size: 23px;
+    border:#1A4185 1px groove;
+}
+.unstatuss td{
+    font-size: 20px;
+    border:#1A4185 1px groove;
+}
+.statused table,.statused th{
+    font-size: 23px;
+    border:#1A4185 1px groove;
+}
+.statused td{
+    font-size: 20px;
+    border:#1A4185 1px groove;
+}
+.delivered table,.delivered th{
+    font-size: 23px;
+    border:#1A4185 1px groove;
+}
+.delivered td{
+    font-size: 20px;
+    border:#1A4185 1px groove;
 }
 /* loc */
 .fa-search{

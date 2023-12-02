@@ -70,13 +70,39 @@
             </div>
         </div>
     </div>
+    <!-- bill -->
+    <div class="bill_information">
+        <div class="bill_infor">
+        <div class="bill_infor-box">
+            <span class="icon-close-infor_bill" onclick="removebill2()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <div class="billtable" style="align-items: center;">
+           <table>
+                <tr>
+                    <th>STT</th>
+                    <th>tên sản phẩm</th>
+                    <th>giá</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>an</td>
+                    <td>5.000.000 đ</td>
+                </tr>
+
+           </table>
+           <div id="submitbill" onclick="submitbill()"> xác nhận</div>
+        </div>
+        </div>
+        </div>
+    </div>
     <div class="submitmall">
         
         <div class="submitmall_content" >
             <span class="submitmall-icon-close" onclick="removesubmitmall()">
                 <i class="fa fa-times" aria-hidden="true"></i>
             </span>
-            <div style="text-align: center;">bạn có chắc chắn muốn đặt hàng không<div id="choicesubmit" style="text-align: center;">
+            <div style="text-align: center;">bạn có chắc chắn muốn thêm vào giỏ hàng không<div id="choicesubmit" style="text-align: center;">
                 <div id="yessubmit"onclick="yessubmit()">có</div>
                 <div id="nosubmit"onclick="nosubmit()">không</div>
             </div></div>
@@ -163,11 +189,11 @@
                 <div  class="danhsach" style="padding-left: 5px;padding-right: 5px;"><a ><i class="fa-solid fa-bars"></i>DANH MỤC SẢN PHẨM</a></div>
                 <div class="submenu">   
                     <ul>
-                        <li class="phongcanh"><a  href="#phongcanh">TRANH PHONG CẢNH</a></li>
-                        <li class="tranhhoa"><a  href="#tranhhoa">TRANH hoa</a></li>
-                        <li class="tinhvat"><a  href="#tinhvat">TRANH TĨNH VẬT</a></li>
-                        <li class="truutuong"><a  href="#truutuong">TRANH TRỪU TƯỢNG</a></li>
-                        <li class="tranhngua"><a  href="#ngua">TRANH NGỰA</a></li>
+                        <li class="phongcanh">TRANH PHONG CẢNH</li>
+                        <li class="tranhhoa">TRANH hoa</li>
+                        <li class="tinhvat">TRANH TĨNH VẬT</li>
+                        <li class="truutuong">TRANH TRỪU TƯỢNG</li>
+                        <li class="tranhngua">TRANH NGỰA</li>
                     </ul>
                 </div>
             </div>
@@ -397,6 +423,7 @@ da gà.”</pre>
             </div>
         </div>
         <!-- giohang -->
+        
         <div id="shopping-mall-wrapper">
             <div id="shopping-mall-header">
                 giỏ hàng
@@ -405,37 +432,35 @@ da gà.”</pre>
                     <i style="font-size: 45px;"class="fa-solid fa-cart-plus" ></i>
                     danh sách
                     </div>
-                <div id="shopping-mall-header">
-                    chưa xử lý
-                    </div>
                     
         <div class="unstatus">
             <div class="shopping-mall-content">
-                <div class="shoppingname" >
-                    <img src="asset/img/tranhphongcanh/phoduongtau.png" alt="pdt"style="height:264.52px;width: 264.52px;margin:10px;border-radius:20px">
-                    <h2>phố đường tàu</h2>
-                </div>
-                <div class="shoppingprice">
-                    <h2 style="margin-top: 20%;">giá</h2>
-                    <h2>180.000.000 đ</h2>
-                </div>
-                <div class="shoppingstatus">
-                    <div>
-                    <h2 style="margin-top: 20%;">tình trạng</h2>
-                    <h2> đã xử lý</h2>
-                </div>
-                </div>
+
             </div>
         </div>
+        <div id="shopping-mall-header">
+            chưa xử lý
+            </div>
+            <div class="unstatuss">
+                <table>
+                </table>
+                <div id="removelist" onclick="removebill()">hủy</div>
+            </div>
             <div id="shopping-mall-header">
                 đã xử lý
                 </div>
-                <div class="statused"></div>
+                <div class="statused">
+                    <table></table>
+                </div>
                 <div id="shopping-mall-header">
                     đã giao
                     </div>
-                    <div class="delivered"></div>
+                    <div class="delivered">
+                        <table></table>
+                    </div>
         </div>
+    </div>
+            
     <!-- hợp tác -->
     <div class="cooperate-main">
         <div class="cooperate">
@@ -487,13 +512,10 @@ da gà.”</pre>
     </div>
     <!-- gioi thieu -->
     <div class="introduce">
-        <div class="introduce_content">
+        <div class="introduce_body">
             <div class="introduce_header">
                 <h1>VỀ CHÚNG TÔI</h1>
-                <img src="asset/img/gioithieu/Picture3.png">
             </div>
-        </div> 
-        <div class="introduce_body">
             <h1>01</h1>
             <h1>SƠ Lược VỀ KỂ BUÔN TRANH</h1>
             <h3>Ra mắt vao tháng 1 năm 2023.</h3>

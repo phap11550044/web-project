@@ -18,7 +18,7 @@ function Register(){
         return false;
     }
     for(var key in account){
-        if(a===account[key].username)
+        if(a.toUpperCase()===account[key].username.toUpperCase())
         {
             alert('tên người dùng này đã tồn tại');
             return false;
@@ -49,9 +49,9 @@ function Register(){
                 alert('mật khẩu phải có ít nhất 8 kí tự và bao gồm cả chữ số và chữ cái');
                 return false;
             }
-        
-    account.push({username:a,email:b,password:c,address:d,phonenumber:e,shopping:[]});
+    account.push({username:a,email:b,password:c,address:d,phonenumber:e,shopping:[],bill:[]});
     localStorage.setItem('account',JSON.stringify(account));
+    history.go(0)
     alert('chúc mừng bạn đã đăng kí thành công')
         }
          var loginname;
@@ -130,7 +130,7 @@ for(var key in filpic){
     if(key>=ftstart && key<ftend){
     html+='<div class="filters_box" onclick="canhbaodangnhap()">'
     html+='<div class="filters_box_img">'
-    html+='<img src="'+filpic[key].imgsrc+ '"alt="'+filpic[key].picname+'"style="width=264.52">'
+    html+='<img src="'+filpic[key].imgsrc+ '"alt="'+filpic[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="filters_box_content">'
     html+=' <h2 class="name">'+filpic[key].picname+'</h2>'
@@ -208,10 +208,11 @@ function filter(){
             }
         }
       }
+    //   search
       if(document.querySelector('#searchbar').value!=''){
         checksame=1;
         for(var i=0;i<filpic.length;i++){
-            if(filpic[i].picname!=document.querySelector('#searchbar').value){
+            if(filpic[i].picname.toUpperCase()!=document.querySelector('#searchbar').value.toUpperCase()){
                 filpic.splice(i,1);
                 i=i-1;
             }
@@ -367,7 +368,7 @@ for(var key in pc){
     if(key>=pcstart && key<pcend){
     html+='<div class="landscape_box" onclick="canhbaodangnhap()">'
     html+='<div class="landscape_box_img">'
-    html+='<img src="'+pc[key].imgsrc+ '"alt="'+pc[key].picname+'"style="width=264.52">'
+    html+='<img src="'+pc[key].imgsrc+ '"alt="'+pc[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="landscape_box_content">'
     html+=' <h2 class="name">'+pc[key].picname+'</h2>'
@@ -408,7 +409,7 @@ for(var key in th){
     if(key>=thstart && key<thend){
     html+='<div class="flower_box" onclick="canhbaodangnhap()">'
     html+='<div class="flower_box_img">'
-    html+='<img src="'+th[key].imgsrc+ '"alt="'+th[key].picname+'"style="width=264.52">'
+    html+='<img src="'+th[key].imgsrc+ '"alt="'+th[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="flower_box_content">'
     html+=' <h2 class="name">'+th[key].picname+'</h2>'
@@ -449,7 +450,7 @@ for(var key in tv){
     if(key>=tvstart && key<tvend){
     html+='<div class="still_box" onclick="canhbaodangnhap()">'
     html+='<div class="still_box_img">'
-    html+='<img src="'+tv[key].imgsrc+ '"alt="'+tv[key].picname+'"style="width=264.52">'
+    html+='<img src="'+tv[key].imgsrc+ '"alt="'+tv[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="still_box_content">'
     html+=' <h2 class="name">'+tv[key].picname+'</h2>'
@@ -490,7 +491,7 @@ for(var key in tt){
     if(key>=ttstart && key<ttend){
     html+='<div class="abstract_box" onclick="canhbaodangnhap()">'
     html+='<div class="abstract_box_img">'
-    html+='<img src="'+tt[key].imgsrc+ '"alt="'+tt[key].picname+'"style="width=264.52">'
+    html+='<img src="'+tt[key].imgsrc+ '"alt="'+tt[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="abstract_box_content">'
     html+=' <h2 class="name">'+tt[key].picname+'</h2>'
@@ -531,7 +532,7 @@ for(var key in tn){
     if(key>=tnstart && key<tnend){
     html+='<div class="horse_box" onclick="canhbaodangnhap()">'
     html+='<div class="horse_box_img">'
-    html+='<img src="'+tn[key].imgsrc+ '"alt="'+tn[key].picname+'"style="width=264.52">'
+    html+='<img src="'+tn[key].imgsrc+ '"alt="'+tn[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="horse_box_content">'
     html+=' <h2 class="name">'+tn[key].picname+'</h2>'

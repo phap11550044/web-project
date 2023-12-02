@@ -73,7 +73,7 @@ for(var key in filpic){
     if(key>=ftstart && key<ftend){
     html+='<div class="filters_box" onclick="onpicinfor(\''+filpic[key].imgsrc+'\')">'
     html+='<div class="filters_box_img">'
-    html+='<img src="'+filpic[key].imgsrc+ '"alt="'+filpic[key].picname+'"style="width=264.52">'
+    html+='<img src="'+filpic[key].imgsrc+ '"alt="'+filpic[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="filters_box_content">'
     html+=' <h2 class="name">'+filpic[key].picname+'</h2>'
@@ -93,7 +93,7 @@ var ftstart=0;
 var ftend=ftperpage;
 function Stringtoprice(a){
     var tach=a.split('.');
-    return Number.parseFloat(tach[0])*1000000+Number.parseFloat(tach[1])*1000+Number.parseFloat(tach[0])
+    return Number.parseFloat(tach[0])*1000000+Number.parseFloat(tach[1])*1000+Number.parseFloat(tach[2])
 }
 function filter(){
     filpic=[];
@@ -159,7 +159,7 @@ function filter(){
       if(document.querySelector('#searchbar').value!=''){
         checksame=1;
         for(var i=0;i<filpic.length;i++){
-            if(filpic[i].picname!=document.querySelector('#searchbar').value){
+            if(filpic[i].picname.toUpperCase()!=document.querySelector('#searchbar').value.toUpperCase()){
                 filpic.splice(i,1);
                 i=i-1;
             }
@@ -297,10 +297,13 @@ tranhhoa.addEventListener('click',()=>{
          movepage('#shopping-mall-wrapper');
       });
       var sphtml=""
+      var i=0;
 for(var value of infor.shopping){
     if(value.status=="chưa xử lí"){
         sphtml+='<div class="shopping-mall-content">'
         sphtml+='<div class="shoppingname" >'
+        sphtml+='<input type="checkbox" name="listsp" value='+i.toString()+' style="width:50px;height:50px">'
+        i++;
         sphtml+='<img src="'+value.src+'" alt="pdt"style="height:264.52px;width: 264.52px;margin:10px;border-radius:20px">'
         sphtml+='<h2>'+value.namepic+'</h2>'
         sphtml+='</div>'
@@ -317,52 +320,228 @@ for(var value of infor.shopping){
         sphtml+='</div>'
     }
 }
+sphtml+='<div id="submitbuy" onclick="bill()">đặt hàng</div>'
 document.querySelector('.unstatus').innerHTML=sphtml;
-var sphtml=""
-for(var value of infor.shopping){
-    if(value.status=="đã xử lí"){
-        sphtml+='<div class="shopping-mall-content">'
-        sphtml+='<div class="shoppingname"  >'
-        sphtml+='<img src="'+value.src+'" alt="pdt"style="height:264.52px;width: 264.52px;margin:10px;border-radius:20px">'
-        sphtml+='<h2>'+value.namepic+'</h2>'
-        sphtml+='</div>'
-        sphtml+='<div class="shoppingprice" >'
-        sphtml+='<h2 style="margin-top: 25%;">giá</h2>'
-        sphtml+='<h2>'+value.pricepic+'đ</h2>'
-        sphtml+='</div>'
-        sphtml+='<div class="shoppingstatus" >'
-        sphtml+='<div>'
-        sphtml+='<h2 style="margin-top: 25%;">tình trạng</h2>'
-        sphtml+='<h2> '+value.status+'</h2>'
-        sphtml+='</div>'
-        sphtml+='</div>'
-        sphtml+='</div>'
+function removebill2(){
+    document.querySelector(".bill_information").style.display="none";
+}
+function bill(){
+    document.querySelector(".bill_information").style.display="flex";
+    window.scrollTo(0, 0);
+    var list=document.getElementsByName("listsp")
+    var index;
+    for(var key in account){
+        if(query==account[key].email){
+            index=key;
+        }
+    }
+    var html="";
+    html+='<tr>'
+        html+='<th style="color:#BD2C13">STT</th>'
+        html+='<th style="color:#BD2C13">name</th>'
+        html+='<th style="color:#BD2C13">price</th>'
+        html+='</tr>'
+    var stt=1;
+    var s=0;
+    for(var i=0;i<list.length;i++){
+        if(list[i].checked){
+        html+='<tr>';
+        html+='<th>'+stt+'</th>'
+        stt++;
+        html+='<th>'+ account[index].shopping[Number.parseInt(list[i].value)].namepic+'</th>'
+        html+='<th>'+ account[index].shopping[Number.parseInt(list[i].value)].pricepic+'</th>'
+        s=s+Stringtoprice(account[index].shopping[Number.parseInt(list[i].value)].pricepic);
+        html+='</tr>'
+        }
+    }
+    html+='<tr>'
+        html+='<th></th>'
+        html+='<th>tổng cộng</th>'
+        html+='<th style="color:#BD2C13">'+pricetodata(s.toString())+'</th>'
+        html+='</tr>'
+    document.querySelector('.billtable table').innerHTML=html;
+}
+function pricetodata(a){
+    if(a.length==7){
+         return a.slice(0, 1) + "." + a.slice(1,4)+"."+a.slice(4,8);
+    }
+    if(a.length==8){
+        return a.slice(0, 2) + "." + a.slice(2,5)+"."+a.slice(5,9);
+    }
+   if(a.length==9){
+    return a.slice(0, 3) + "." + a.slice(3,6)+"."+a.slice(6,10);
+}
+if(a.length==10){
+    return  a.slice(0, 1) + "."+a.slice(1, 4) + "." + a.slice(4,7)+"."+a.slice(7,10);
+}
+if(a.length==11){
+    return  a.slice(0, 2) + "."+a.slice(2, 5) + "." + a.slice(5,8)+"."+a.slice(8,11);
+}
+if(a.length==12){
+    return a.slice(0, 3) + "." + a.slice(3,6)+"."+a.slice(6,9)+"."+a.slice(9,12);
+}   
+}
+function submitbill(){
+    var list=document.getElementsByName("listsp")
+    var index;
+    for(var key in account){
+        if(query==account[key].email){
+            index=key;
+        }
+    }
+    var a=[];
+    for(var i=0;i<list.length;i++){
+        if(list[i].checked){
+            var picname = account[index].shopping[Number.parseInt(list[i].value)].namepic;
+            var picprice = account[index].shopping[Number.parseInt(list[i].value)].pricepic;
+            a.push({name:picname,price:picprice});         
+        }
+    }
+    var count=0
+    for(var i=0;i<list.length;i++){
+        if(list[i].checked){
+            account[index].shopping.splice(count,1);
+            count-- ;      
+        }
+        else count++;
+    }
+    if(a.length==0){
+        document.querySelector(".bill_information").style.display="none";
+        alert("không có sản phẩm")
+    }
+    else{
+        var date=new Date();
+            const formattedDate = date.toLocaleDateString("en-US", {
+                day: "numeric",
+                month: "numeric",
+                year: "numeric",
+              });
+    account[key].bill.push({list:a,status:'chưa xử lý',date:formattedDate});
+    localStorage.setItem('account',JSON.stringify(account));
+    document.querySelector(".bill_information").style.display="none";
+    location.reload();
+    window.scrollTo(0, 0);
+    alert("đã đặt hàng thành công")
     }
 }
-document.querySelector('.statused').innerHTML=sphtml;
-var sphtml=""
-for(var value of infor.shopping){
-    if(value.status=="đã giao"){
-        sphtml+='<div class="shopping-mall-content">'
-        sphtml+='<div class="shoppingname" >'
-        sphtml+='<img src="'+value.src+'" alt="pdt"style="height:264.52px;width: 264.52px;margin:10px;border-radius:20px">'
-        sphtml+='<h2>'+value.namepic+'</h2>'
-        sphtml+='</div>'
-        sphtml+='<div class="shoppingprice">'
-        sphtml+='<h2 style="margin-top: 25%;">giá</h2>'
-        sphtml+='<h2>'+value.pricepic+'đ</h2>'
-        sphtml+='</div>'
-        sphtml+='<div class="shoppingstatus">'
-        sphtml+='<div>'
-        sphtml+='<h2 style="margin-top: 25%;">tình trạng</h2>'
-        sphtml+='<h2> '+value.status+'</h2>'
-        sphtml+='</div>'
-        sphtml+='</div>'
-        sphtml+='</div>'
-    }
-}
-document.querySelector('.delivered').innerHTML=sphtml;
 
+function removebill(){
+    var index;
+    for(var key in account){
+        if(query==account[key].email){
+            index=key;
+        }
+    }
+    const result=confirm("bạn có chắc chắn muốn hủy các đơn này");
+    if(result){
+    var count=0;
+    checksame=0;
+    var list=document.getElementsByName("removelist");
+    for(var i=0;i<list.length;i++){
+        if(list[i].checked){
+            console.log(account[index].bill[count])
+            account[index].bill.splice(count,1);
+            checksame=1;
+            count-- ;      
+        }
+        else count++;
+    }
+    localStorage.setItem('account',JSON.stringify(account));
+    if(checksame==0){
+        alert("bạn chưa tích vào đơn hàng nào");
+    }
+    else{
+        location.reload();
+        window.scrollTo(0, 0);
+        alert("bạn đã hủy đơn hàng thành công")
+    }
+}
+}
+var count=1;
+var sphtml=""
+for(var value of infor.bill){
+    if(value.status=="chưa xử lý"){
+        sphtml+='<tr>'
+        sphtml+='<th style="color:#BD2C13">STT</th>'
+        sphtml+='<th style="color:#BD2C13">name</th>'
+        sphtml+='<th style="color:#BD2C13">price</th>'
+        sphtml+='<th style="color:#BD2C13">đơn hàng số '+count+'<br><input type="checkbox" name="removelist" value='+(count-1)+' style="width:25px;height:25px"><br>'+value.date+' </th>'
+        count++;
+        sphtml+='</tr>'
+        var s=0;
+        for(key in value.list){
+        sphtml+='<tr>'
+        sphtml+='<th>'+(Number.parseInt(key)+1)+'</th>'
+        sphtml+='<th>'+value.list[key].name+'</th>'
+        sphtml+='<th>'+value.list[key].price+'</th>'
+        s=s+Stringtoprice(value.list[key].price);
+        sphtml+='</tr>'
+        }     
+        sphtml+='<tr>'
+        sphtml+='<th></th>'
+        sphtml+='<th>tổng cộng</th>'
+        sphtml+='<th style="color:#BD2C13">'+pricetodata(s.toString())+'</th>'
+        sphtml+='</tr>'
+    }
+}
+document.querySelector('.unstatuss table').innerHTML=sphtml;
+var count=1;
+var sphtml=""
+for(var value of infor.bill){
+    if(value.status=="đã xử lý"){
+        sphtml+='<tr>'
+        sphtml+='<th style="color:#BD2C13">STT</th>'
+        sphtml+='<th style="color:#BD2C13">name</th>'
+        sphtml+='<th style="color:#BD2C13">price</th>'
+        sphtml+='<th style="color:#BD2C13">đơn hàng số '+count+' <br>'+value.date+' </th>'
+        count++;
+        sphtml+='</tr>'
+        var s=0;
+        for(key in value.list){
+        sphtml+='<tr>'
+        sphtml+='<th>'+(Number.parseInt(key)+1)+'</th>'
+        sphtml+='<th>'+value.list[key].name+'</th>'
+        sphtml+='<th>'+value.list[key].price+'</th>'
+        s=s+Stringtoprice(value.list[key].price);
+        sphtml+='</tr>'
+        }     
+        sphtml+='<tr>'
+        sphtml+='<th></th>'
+        sphtml+='<th>tổng cộng</th>'
+        sphtml+='<th style="color:#BD2C13">'+pricetodata(s.toString())+'</th>'
+        sphtml+='</tr>'
+    }
+}
+document.querySelector('.statused table').innerHTML=sphtml;
+
+var count=1;
+var sphtml=""
+for(var value of infor.bill){
+    if(value.status=="đã giao"){
+        sphtml+='<tr>'
+        sphtml+='<th style="color:#BD2C13">STT</th>'
+        sphtml+='<th style="color:#BD2C13"> name</th>'
+        sphtml+='<th style="color:#BD2C13">price</th>'
+        sphtml+='<th style="color:#BD2C13">đơn hàng số '+count+' <br>'+value.date+' </th>'
+        count++;
+        sphtml+='</tr>'
+        var s=0;
+        for(key in value.list){
+        sphtml+='<tr>'
+        sphtml+='<th>'+(Number.parseInt(key)+1)+'</th>'
+        sphtml+='<th>'+value.list[key].name+'</th>'
+        sphtml+='<th>'+value.list[key].price+'</th>'
+        s=s+Stringtoprice(value.list[key].price);
+        sphtml+='</tr>'
+        }     
+        sphtml+='<tr>'
+        sphtml+='<th></th>'
+        sphtml+='<th>tổng cộng</th>'
+        sphtml+='<th style="color:#BD2C13">'+pricetodata(s.toString())+'</th>'
+        sphtml+='</tr>'
+    }
+}
+document.querySelector('.delivered table').innerHTML=sphtml;
 // danh muc san pham
 //phongcanh
 var pc= JSON.parse(localStorage.getItem('phongcanh'));
@@ -384,7 +563,7 @@ for(var key in pc){
     if(key>=pcstart && key<pcend){
     html+='<div class="landscape_box" name="'+pc[key].imgsrc+'" onclick="onpicinfor(\''+pc[key].imgsrc+'\')">'
     html+='<div class="landscape_box_img">'
-    html+='<img src="'+pc[key].imgsrc+ '"alt="'+pc[key].picname+'"style="width=264.52">'
+    html+='<img src="'+pc[key].imgsrc+ '"alt="'+pc[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="landscape_box_content">'
     html+=' <h2 class="name">'+pc[key].picname+'</h2>'
@@ -425,7 +604,7 @@ for(var key in th){
     if(key>=thstart && key<thend){
     html+='<div class="flower_box" onclick="onpicinfor(\''+th[key].imgsrc+'\')">'
     html+='<div class="flower_box_img">'
-    html+='<img src="'+th[key].imgsrc+ '"alt="'+th[key].picname+'"style="width=264.52">'
+    html+='<img src="'+th[key].imgsrc+ '"alt="'+th[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="flower_box_content">'
     html+=' <h2 class="name">'+th[key].picname+'</h2>'
@@ -466,7 +645,7 @@ for(var key in tv){
     if(key>=tvstart && key<tvend){
     html+='<div class="still_box" onclick="onpicinfor(\''+tv[key].imgsrc+'\')">'
     html+='<div class="still_box_img">'
-    html+='<img src="'+tv[key].imgsrc+ '"alt="'+tv[key].picname+'"style="width=264.52">'
+    html+='<img src="'+tv[key].imgsrc+ '"alt="'+tv[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="still_box_content">'
     html+=' <h2 class="name">'+tv[key].picname+'</h2>'
@@ -507,7 +686,7 @@ for(var key in tt){
     if(key>=ttstart && key<ttend){
     html+='<div class="abstract_box" onclick="onpicinfor(\''+tt[key].imgsrc+'\')">'
     html+='<div class="abstract_box_img">'
-    html+='<img src="'+tt[key].imgsrc+ '"alt="'+tt[key].picname+'"style="width=264.52">'
+    html+='<img src="'+tt[key].imgsrc+ '"alt="'+tt[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="abstract_box_content">'
     html+=' <h2 class="name">'+tt[key].picname+'</h2>'
@@ -548,7 +727,7 @@ for(var key in tn){
     if(key>=tnstart && key<tnend){
     html+='<div class="horse_box" onclick="onpicinfor(\''+tn[key].imgsrc+'\')">'
     html+='<div class="horse_box_img">'
-    html+='<img src="'+tn[key].imgsrc+ '"alt="'+tn[key].picname+'"style="width=264.52">'
+    html+='<img src="'+tn[key].imgsrc+ '"alt="'+tn[key].picname+'"style="width:264.52px;height:281.2px">'
     html+='</div>'
     html+='<div class="horse_box_content">'
     html+=' <h2 class="name">'+tn[key].picname+'</h2>'
@@ -627,4 +806,7 @@ function yessubmit(){
             }
         }
     }
+    window.scrollTo(0, 0);
+    location.reload();
+    document.querySelector('.picture_information').style.display="none"
 }
