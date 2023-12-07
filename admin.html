@@ -9,450 +9,79 @@
     <title>Kẻ Buôn Tranh</title>
 </head>
 <body>
-    <div class="picture_information">
-        
-        <div class="picture_infor">
-            
-            <div class="picture_infor-box">
-                <span class="icon-close-infor_img">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </span>
-                <div class="picture_infor-box-img">
-                    <img src="asset/img/trangchu/test.png" alt="" width="575px" height="370px">
-                </div>
-                <div class="picture_infor-box-title"><h1>PHIÊU LÃNG</h1></div>
-                <div class="picture_infor-box-content">
-                    <div class="picture_infor-box-content-1">
-                        <div style="text-align: center;"id="inforname"><h3>loại tranh</h3><h4 style="color: #BD2C13;">name</h4></div>
-                        <div style="text-align: center;"id="infortone"><h3>tone màu</h3><h4 style="color: #BD2C13;">name</h4></div>
-                        <div style="text-align: center;"id="inforchatlieu"><h3>chất liệu</h3><h4 style="color: #BD2C13;">name</h4></div>
-                        <div style="text-align: center;"id="inforprice" style="text-align: center;"><h3 >giá</h3><h2 style="color: #BD2C13;">name</h2></div>
-                    </div>
-                    <div class="picture_infor-box-content-2">
+    <div class="admin">
+        <div class="header">
+            <div class="logo">
+               <a href=""> <img src="asset/img/logo.png" alt="logo"></a>
+            </div>
+            <div class="trangchu"><a href="">TRANG CHỦ</a></div>
+            <div class="sanpham">SẢN PHẨM</div>
+            <div class="donhang">ĐƠN HÀNG</div>
+            <div class="quanli">QUẢN LÍ</div>
+            <div class="quanli">ĐĂNG XUẤT</div>
 
-                        <div class="picture_infor-box-content-2-button" onclick="repair()">
-                           <button style="font-family:SVN-HC Calvous;"> sửa</button>
-                        </div>
-                        <div style="text-align: center;">những thuộc tính không sửa thì để trống</div>
-                        
-                    </div>
-                </div>
-                <div>
-                    <div id="type" style="background-color: #FBBF49;">
-                        <p id="type_content" style="margin: 0;text-align: center;color: #BD2C13;">loại tranh</p>
-                        </div>
-                        <div id="typechoice" style="background-color: #FBBF49;">
-                                <form>
-                                <input type="radio" id="tranhphongcanh" name="repairtype_pic" value="tranh phong cảnh">
-                                <label for="tranh phong cảnh">tranh phong cảnh</label><br>
-                                <input type="radio" id="tranhtruutuong" name="repairtype_pic" value="tranh trừu tượng">
-                                <label for="tranh trừu tượng">tranh trừu tượng</label><br>
-                                <input type="radio" id="tranhtinhvat" name="repairtype_pic" value="tranh tĩnh vật">
-                                <label for="tranh tĩnh vật">tranh tĩnh vật</label><br>
-                                <input type="radio" id="tranhngua" name="repairtype_pic" value="tranh ngựa">
-                                <label for="tranh ngựa">tranh ngựa</label><br>
-                                <input type="radio" id="tranhhoa" name="repairtype_pic" value="tranh hoa">
-                                <label for="tranh hoa">tranh hoa</label><br>      
-                                </form>
-                            </div>
-                            <div id="tone" style="background-color: #FBBF49;">
-                                <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">tone màu</p>
-                                </div>
-                                <div id="tonechoice" style="background-color: #FBBF49;">
-                                    <form>
-                                    <input type="radio" id="hot" name="repairtone_pic" value="nóng">
-                                    <label for="nóng">nóng</label><br>
-                                    <input type="radio" id="cold" name="repairtone_pic" value="lạnh">
-                                    <label for="lạnh">lạnh</label><br>
-                                    </form>
-                                </div>
-            
-                                <div id="chatlieu" style="background-color: #FBBF49;">
-                                    <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">chất liệu</p>
-                                    </div>
-                                    <div id="chatlieuchoice" style="background-color: #FBBF49;">
-                                        <form>
-                                        <input type="radio" id="acrylic" name="repairchatlieu_pic" value="acrylic">
-                                        <label for="acrylic">acrylic</label><br>
-                                        <input type="radio" id="sondau" name="repairchatlieu_pic" value="sơn dầu">
-                                        <label for="sơn dầu">sơn dầu</label><br>
-                                        </form>
-                                    </div>
-            
-                                    <div id="namechoice" style="background-color: #FBBF49;">
-                                        <label for="name">tên tác phẩm </label>
-                                        <br>
-                                        <input type="text" id="repairnamepic" name="name"  />
-                                </div>
-                                <div id="pricechoice" style="background-color: #FBBF49;">
-                                        <label for="tentacles">giá </label>
-                                        <br>
-                                        <input type="number" id="repairpricepic" name="tentacles" min="10" max="100000000" />
-                                </div>
-                                <div class="imgchoice" style="text-align: center;padding-top: 10px;background-color: #FBBF49;">
-                                    <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">hình ảnh </p>
-                                <div>
-                                    <img id="repairimg" src="asset/img/img.png" height="338px" width="367px">
-            
-                                </div>
-                                <input style="color: #1A4185;" type="file" id="repairinputimg">
-                            </div>
-            
-                            <div class="imgctchoice" style="text-align: center;padding-top: 10px;background-color: #FBBF49;">
-                                <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">hình ảnh chi tiết</p>
-                                <div>
-                                    <img id="repairimgct" src="asset/img/imgct.png" height="370px" width="575px">
-            
-                                </div>
-                                <input style="color: #1A4185;" type="file" id="repairinputimgct">
-                            </div>
-                </div>
-            </div>
         </div>
-    </div>
-    <div class="form_information">
-        
-        <div class="form_infor">
-            
-            <div class="form_infor-box">
-                <span class="icon-close-infor">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </span>
-                <div style="text-align: center;margin-top: 50px;"><h1 >THÔNG TIN KHÁCH HÀNG</h1></div>
-                <div style="text-align: center;" >
-                        
-                <h3 class="name_infor"style="padding-left:10px;margin:10px"></h3>
-                <h3 class="email"style="padding-left:10px;margin:10px"></h3>
-                <h3 class="number_phone"style="padding-left:10px;margin:10px"></h3>
-                <h3 class="dia_chi"style="padding-left:10px;margin:10px"></h3>
-                </div>
-                <div class="dang_xuat" style="text-align: center;"><h1 style="color:#BD2C13">ĐĂNG XUẤT</h1></div>
-            </div>
-        </div>
-    </div>
-<div class="wrapper">
-    <div class="header admin" onclick="movepage('.main')">ADMIN</div>
-    <div class="logout"><div class="logout_content" onclick="logout()">đăng xuất      
-    </div>
-    <div class="logout_content_2">chào mừng bạn đã trở lại</div>
-    </div>
-    <div class="main">
-    
-    
-    <div class="manage">
-        <div class="addsp choice" onclick="movepage('.add')">thêm sản phẩm</div>
-        <div class= "removesp choice" onclick="movepage('.remove_wrapper')" >xóa sản phẩm</div>
-        <div class="repairr choice" onclick="movepage('.repair_wrapper')" >sửa sản phẩm</div>
-        <div class="bill choice" onclick="movepage('#shopping-mall-wrapper')" >quản lí đơn hàng</div>   
-        <div class="billtime choice" onclick="movepage('.timecontrol_bill')" >xem lại các đơn hàng trong 1 khoảng thời gian</div>  
-        <div class="stat choice" onclick="movepage('.sta_wrapper')"  >thống kê kinh doanh</div>   
-
-    </div>
-</div>
-    <div class="add">
-        <div class="header" style="border: #1A4185 2px groove;">thêm sản phẩm</div>
-        <div>
-        <div id="type" style="background-color: #FBBF49;">
-            <p id="type_content" style="margin: 0;text-align: center;color: #BD2C13;">loại tranh</p>
-            </div>
-            <div id="typechoice" style="background-color: #FBBF49;">
-                    <form>
-                    <input type="radio" id="tranhphongcanh" name="type_pic" value="tranh phong cảnh">
-                    <label for="tranh phong cảnh">tranh phong cảnh</label><br>
-                    <input type="radio" id="tranhtruutuong" name="type_pic" value="tranh trừu tượng">
-                    <label for="tranh trừu tượng">tranh trừu tượng</label><br>
-                    <input type="radio" id="tranhtinhvat" name="type_pic" value="tranh tĩnh vật">
-                    <label for="tranh tĩnh vật">tranh tĩnh vật</label><br>
-                    <input type="radio" id="tranhngua" name="type_pic" value="tranh ngựa">
-                    <label for="tranh ngựa">tranh ngựa</label><br>
-                    <input type="radio" id="tranhhoa" name="type_pic" value="tranh hoa">
-                    <label for="tranh hoa">tranh hoa</label><br>      
-                    </form>
-                </div>
-                <div id="tone" style="background-color: #FBBF49;">
-                    <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">tone màu</p>
+        <div class="maincontent">
+            <div class="SANPHAM_display">
+                <div class="SANPHAM">
+                    <div class="chitietSP">
+                        <h1>CHI TIẾT SẢN PHẨM</h1>
+                        <div class="main_chitietsanpham"></div>
                     </div>
-                    <div id="tonechoice" style="background-color: #FBBF49;">
-                        <form>
-                        <input type="radio" id="hot" name="tone_pic" value="nóng">
-                        <label for="nóng">nóng</label><br>
-                        <input type="radio" id="cold" name="tone_pic" value="lạnh">
-                        <label for="lạnh">lạnh</label><br>
+                    <div class="themSP">
+                        <h1 style="text-align: center;">THÊM SẢN PHẨM</h1>
+                        <br>
+                        <form action="">
+                            <div>
+                                <label>Tên Sản Phẩm</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <br>
+                            <div>
+                                <label>THỂ LOẠI TRANH</label>
+                                <select>
+                                    <option value="">TRANH PHONG CẢNH</option>
+                                    <option value="">TRANH TRỪU TƯỢNG</option>
+                                    <option value="">TRANH TĨNH VẬT</option>
+                                    <option value="">TRANH NGỰA</option>
+                                    <option value="">TRANH HOA</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div>
+                                <label>Giá</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <br>
+                            <div>
+                                <label for="">ẢNH</label>
+                                <input type="file">
+                            </div>
+                            <br>
+                            <button>THÊM</button>
                         </form>
                     </div>
-
-                    <div id="chatlieu" style="background-color: #FBBF49;">
-                        <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">chất liệu</p>
-                        </div>
-                        <div id="chatlieuchoice" style="background-color: #FBBF49;">
-                            <form>
-                            <input type="radio" id="acrylic" name="chatlieu_pic" value="acrylic">
-                            <label for="acrylic">acrylic</label><br>
-                            <input type="radio" id="sondau" name="chatlieu_pic" value="sơn dầu">
-                            <label for="sơn dầu">sơn dầu</label><br>
-                            </form>
-                        </div>
-
-                        <div id="namechoice" style="background-color: #FBBF49;">
-                            <label for="name">tên tác phẩm </label>
-                            <br>
-                            <input type="text" id="namepic" name="name"  />
-                    </div>
-                    <div id="pricechoice" style="background-color: #FBBF49;">
-                            <label for="tentacles">giá </label>
-                            <br>
-                            <input type="number" id="pricepic" name="tentacles" min="10" max="100000000" />
-                    </div>
-                    <div class="imgchoice" style="text-align: center;padding-top: 10px;background-color: #FBBF49;">
-                        <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">hình ảnh </p>
-                    <div>
-                        <img id="img" src="asset/img/img.png" height="338px" width="367px">
-
-                    </div>
-                    <input style="color: #1A4185;" type="file" id="inputimg">
                 </div>
-
-                <div class="imgctchoice" style="text-align: center;padding-top: 10px;background-color: #FBBF49;">
-                    <p style="margin: 0;line-height: 70px;text-align: center;color: #BD2C13;">hình ảnh chi tiết</p>
-                    <div>
-                        <img id="imgct" src="asset/img/imgct.png" height="370px" width="575px">
-
-                    </div>
-                    <input style="color: #1A4185;" type="file" id="inputimgct">
-                </div>
-                  
-                        <div id="addon" onclick="addon()" style="text-align: center;border: #1A4185 2px groove;">
-                            thêm sản phẩm
-                        </div>
-                    </div>
-    </div>
-    <div class="remove_wrapper">
-    <div class="remove">
-        <div class="removepc choice" onclick="movepage('.landscape_picture_wrapper')">xóa tranh phong cảnh</div>
-        <div class="removeth choice" onclick="movepage('.flower_picture_wrapper')">xóa tranh hoa</div>
-        <div class="removett choice" onclick="movepage('.abstract_picture_wrapper')">xóa tranh trừu tượng</div>
-        <div class="removetn choice" onclick="movepage('.horse_picture_wrapper')">xóa tranh ngựa</div>
-        <div class="removetv choice" onclick="movepage('.still_picture_wrapper')">xóa tranh tĩnh vật</div>
-
-    </div>
-</div>
-<div class="timecontrol_bill">
-    <div class="timebill">
-        <div class="timeinput" style="background-color: #fedd90;border: #1A4185 2px groove;">
-        <label for="date" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px; ">từ</label>
-        <input type="date" name="frombill" id="frombill" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;"><br>
-        <label for="date" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;">đến</label>
-        <input type="date" name="tobill" id="tobill" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;"><br>
-        <input type="submit" onclick="timecontrolbill()" name="submitdate" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;">
-    </div>
-    <div id="shopping-mall-header">
-        chưa xử lý
-        </div>
-        
-<div class="unstatusdate">
-    
-<table></table>
-</div>
-<div id="shopping-mall-header">
-    đã xử lý
-    </div>
-    <div class="statuseddate">
-        <table></table>
-    </div>
-    <div id="shopping-mall-header">
-        đã giao
-        </div>
-        <div class="delivereddate">
-        <table></table>
-        </div>
-    </div>
-</div>
-<div id="shopping-mall-wrapper">
-    <div id="shopping-mall-header">
-        quản lí đơn hàng
-        </div>
-        <div id="shopping-mall-header-2">
-            <i style="font-size: 45px;"class="fa-solid fa-cart-plus" ></i>
-            danh sách
-            </div>
-        <div id="shopping-mall-header">
-            chưa xử lý
             </div>
             
-<div class="unstatus">
-    <table></table>
-</div>
-    <div id="shopping-mall-header">
-        đã xử lý
-        </div>
-        <div class="statused">
-            <table></table>
-        </div>
-        <div id="shopping-mall-header">
-            đã giao
+            <div class="DONHANG_display">
+                <div class="DONHANG">
+                    <div class="DSDONHANG">
+                        <h1>DANH SÁCH ĐƠN HÀNG</h1>
+                        <div class="main_DSDONHANG">
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="delivered">
-            <table></table>
+            <div class="THONGKE_display">
+
             </div>
-</div>
-
-<div class="repair_wrapper">
-    <div class="repair">
-        <div class="repairpc choice" onclick="movepage('.replandscape_picture_wrapper')">sửa tranh phong cảnh</div>
-        <div class="repairth choice" onclick="movepage('.repflower_picture_wrapper')">sửa tranh hoa</div>
-        <div class="repairtt choice" onclick="movepage('.repabstract_picture_wrapper')">sửa tranh trừu tượng</div>
-        <div class="repairtn choice" onclick="movepage('.rephorse_picture_wrapper')">sửa tranh ngựa</div>
-        <div class="repairtv choice" onclick="movepage('.repstill_picture_wrapper')">sửa tranh tĩnh vật</div>
-
-    </div>
-</div>
-
-<div class="sta_wrapper">
-    <div class="remove">
-        <div class="staalll choice" onclick="movepage('.staall_wrapper')">thống kê tổng quát</div>
-        <div class="stadetaill choice" onclick="movepage('.stadetail_wrapper')">thống kê chi tiết</div>
-    </div>
-</div>
-<div class="staall_wrapper">
-    <div class="staall">
-        <div class="timebill">
-            <div class="timeinput" style="background-color: #fedd90;border: #1A4185 2px groove;">
-            <label for="date" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px; ">từ</label>
-            <input type="date" name="frombill" id="fromstaall" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;"><br>
-            <label for="date" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;">đến</label>
-            <input type="date" name="tobill" id="tostaall" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;"><br>
-            <input type="submit" onclick="staall()" name="submitdate" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;">
         </div>
-        <table>
 
-        </table>
     </div>
-</div>
-</div>
-
-<div class="stadetail_wrapper">
-    <div class="timebill">
-        <div class="timeinput" style="background-color: #fedd90;border: #1A4185 2px groove;">
-        <label for="date" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px; ">từ</label>
-        <input type="date" name="frombill" id="fromstadetail" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;"><br>
-        <label for="date" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;">đến</label>
-        <input type="date" name="tobill" id="tostadetail" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;"><br>
-        <input type="submit" onclick="stadetail()" name="submitdate" style="color: #1A4185; font-family: 'SVN-HC Calvous';font-size: 25px;">
-    </div>
-    <div class="stadetail">
-       <table></table>
-    </div>
-</div>
-</div>
-
-<div class="landscape_picture_wrapper">
-    <div class="landscape header" style="border: #1A4185 3px solid;">
-        TRANH PHONG CẢNH
-    </div>
-    
-    <div class="landscape_picture_content">
-    </div>
-    <div class="landscape_picture_paging">
-    </div>
-</div>
-<div class="flower_picture_wrapper">
-    <div class="flower header" style="border: #1A4185 3px solid;" >
-        TRANH HOA
-    </div>
-    
-    <div class="flower_picture_content">
-    </div>
-    <div class="flower_picture_paging">
-    </div>
-</div>
-
-<div class="still_picture_wrapper">
-    <div class="still header" style="border: #1A4185 3px solid;">
-        TRANH tĩnh vật
-    </div>
-    
-    <div class="still_picture_content">
-    </div>
-    <div class="still_picture_paging">
-    </div>
-</div>
-
-<div class="abstract_picture_wrapper">
-    <div class="abstract header" style="border: #1A4185 3px solid;">
-        TRANH trừu tượng
-    </div>
-    
-    <div class="abstract_picture_content">
-    </div>
-    <div class="abstract_picture_paging">
-    </div>
-</div>
-<div class="horse_picture_wrapper">
-    <div class="horse header" style="border: #1A4185 3px solid;">
-        TRANH ngựa
-    </div>
-    
-    <div class="horse_picture_content">
-    </div>
-    <div class="horse_picture_paging">
-    </div>
-</div>
-
-<!-- sua san pham -->
-<div class="replandscape_picture_wrapper">
-    <div class="replandscape header" style="border: #1A4185 3px solid;">
-        TRANH PHONG CẢNH
-    </div>
-    
-    <div class="replandscape_picture_content">
-    </div>
-    <div class="replandscape_picture_paging">
-    </div>
-</div>
-<div class="repflower_picture_wrapper">
-    <div class="repflower header" style="border: #1A4185 3px solid;" >
-        TRANH HOA
-    </div>
-    
-    <div class="repflower_picture_content">
-    </div>
-    <div class="repflower_picture_paging">
-    </div>
-</div>
-
-<div class="repstill_picture_wrapper">
-    <div class="repstill header" style="border: #1A4185 3px solid;">
-        TRANH tĩnh vật
-    </div>
-    
-    <div class="repstill_picture_content">
-    </div>
-    <div class="repstill_picture_paging">
-    </div>
-</div>
-
-<div class="repabstract_picture_wrapper">
-    <div class="repabstract header" style="border: #1A4185 3px solid;">
-        TRANH trừu tượng
-    </div>
-    
-    <div class="repabstract_picture_content">
-    </div>
-    <div class="repabstract_picture_paging">
-    </div>
-</div>
-<div class="rephorse_picture_wrapper">
-    <div class="rephorse header" style="border: #1A4185 3px solid;">
-        TRANH ngựa
-    </div>
-    
-    <div class="rephorse_picture_content">
-    </div>
-    <div class="rephorse_picture_paging">
-    </div>
-</div>
-    
-    
+   
+      
 
     <script  src="asset/js/admin.js"></script>
 </body>

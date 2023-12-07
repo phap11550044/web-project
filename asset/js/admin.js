@@ -1626,3 +1626,5 @@ function stadetail(){
         staalltable+='</tr>'
     document.querySelector('.stadetail table').innerHTML=staalltable;
 }
+
+
